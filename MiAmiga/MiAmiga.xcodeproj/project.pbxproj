@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000110000000000000001 /* MiAmigaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000010000000000000001 /* MiAmigaApp.swift */; };
+		A10000120000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000020000000000000001 /* ContentView.swift */; };
+		A10000130000000000000001 /* MicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000030000000000000001 /* MicButton.swift */; };
+		A10000140000000000000001 /* PhraseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000040000000000000001 /* PhraseCard.swift */; };
+		A10000150000000000000001 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000050000000000000001 /* HistoryView.swift */; };
+		A10000160000000000000001 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000060000000000000001 /* SpeechRecognizer.swift */; };
+		A10000170000000000000001 /* SpeechSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000070000000000000001 /* SpeechSpeaker.swift */; };
+		A10000180000000000000001 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000080000000000000001 /* TranslationService.swift */; };
+		A10000190000000000000001 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000090000000000000001 /* Phrase.swift */; };
+		A100001A0000000000000001 /* TranslatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100000A0000000000000001 /* TranslatorViewModel.swift */; };
+		A100001C0000000000000001 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100000D0000000000000001 /* Theme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10000000000000000000001 /* MiAmiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiAmiga.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000010000000000000001 /* MiAmigaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiAmigaApp.swift; sourceTree = "<group>"; };
+		A10000020000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A10000030000000000000001 /* MicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicButton.swift; sourceTree = "<group>"; };
+		A10000040000000000000001 /* PhraseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCard.swift; sourceTree = "<group>"; };
+		A10000050000000000000001 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		A10000060000000000000001 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		A10000070000000000000001 /* SpeechSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSpeaker.swift; sourceTree = "<group>"; };
+		A10000080000000000000001 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		A10000090000000000000001 /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
+		A100000A0000000000000001 /* TranslatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewModel.swift; sourceTree = "<group>"; };
+		A100000C0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A100000D0000000000000001 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000300000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000400000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A10000410000000000000001 /* MiAmiga */,
+				A10000420000000000000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000410000000000000001 /* MiAmiga */ = {
+			isa = PBXGroup;
+			children = (
+				A10000010000000000000001 /* MiAmigaApp.swift */,
+				A10000430000000000000001 /* Views */,
+				A10000440000000000000001 /* Services */,
+				A10000450000000000000001 /* Models */,
+				A100000C0000000000000001 /* Info.plist */,
+			);
+			path = MiAmiga;
+			sourceTree = "<group>";
+		};
+		A10000420000000000000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000001 /* MiAmiga.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A10000430000000000000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A10000020000000000000001 /* ContentView.swift */,
+				A10000030000000000000001 /* MicButton.swift */,
+				A10000040000000000000001 /* PhraseCard.swift */,
+				A10000050000000000000001 /* HistoryView.swift */,
+				A100000D0000000000000001 /* Theme.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A10000440000000000000001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A10000060000000000000001 /* SpeechRecognizer.swift */,
+				A10000070000000000000001 /* SpeechSpeaker.swift */,
+				A10000080000000000000001 /* TranslationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A10000450000000000000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10000090000000000000001 /* Phrase.swift */,
+				A100000A0000000000000001 /* TranslatorViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000500000000000000001 /* MiAmiga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000700000000000000001 /* Build configuration list for PBXNativeTarget "MiAmiga" */;
+			buildPhases = (
+				A10000510000000000000001 /* Sources */,
+				A10000300000000000000001 /* Frameworks */,
+				A10000520000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MiAmiga;
+			productName = MiAmiga;
+			productReference = A10000000000000000000001 /* MiAmiga.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000600000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A10000500000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000610000000000000001 /* Build configuration list for PBXProject "MiAmiga" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10000400000000000000001;
+			productRefGroup = A10000420000000000000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000500000000000000001 /* MiAmiga */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000520000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000510000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000110000000000000001 /* MiAmigaApp.swift in Sources */,
+				A10000120000000000000001 /* ContentView.swift in Sources */,
+				A10000130000000000000001 /* MicButton.swift in Sources */,
+				A10000140000000000000001 /* PhraseCard.swift in Sources */,
+				A10000150000000000000001 /* HistoryView.swift in Sources */,
+				A100001C0000000000000001 /* Theme.swift in Sources */,
+				A10000160000000000000001 /* SpeechRecognizer.swift in Sources */,
+				A10000170000000000000001 /* SpeechSpeaker.swift in Sources */,
+				A10000180000000000000001 /* TranslationService.swift in Sources */,
+				A10000190000000000000001 /* Phrase.swift in Sources */,
+				A100001A0000000000000001 /* TranslatorViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A10000620000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A10000630000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A10000710000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MiAmiga/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sani.MiAmiga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A10000720000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MiAmiga/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sani.MiAmiga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000610000000000000001 /* Build configuration list for PBXProject "MiAmiga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000620000000000000001 /* Debug */,
+				A10000630000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000700000000000000001 /* Build configuration list for PBXNativeTarget "MiAmiga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000710000000000000001 /* Debug */,
+				A10000720000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000600000000000000001 /* Project object */;
+}
