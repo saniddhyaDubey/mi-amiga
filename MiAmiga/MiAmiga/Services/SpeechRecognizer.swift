@@ -26,7 +26,7 @@ final class SpeechRecognizer {
             case .micNotAuthorized:
                 return "Microphone access was denied. Enable it in Settings › Mi Amiga › Microphone."
             case .recognizerUnavailable:
-                return "English speech recognition isn't available on this device right now."
+                return "Speech recognition isn't available for that language on this device right now."
             case .audioSessionFailed(let detail):
                 return "Couldn't start the microphone: \(detail)"
             }
@@ -41,7 +41,25 @@ final class SpeechRecognizer {
     /// Peak input level 0...1, used to drive the waveform ring in the UI.
     private(set) var audioLevel: Float = 0
 
-    private let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+    /// Which language the mic is currently listening for. English for
+    /// translating, Spanish for practice — a recognizer's locale is fixed at
+    /// construction, so switching means building a new one.
+    enum Language: String {
+        case english = "en-US"
+        case spanish = "es-ES"
+    }
+
+    private(set) var language: Language = .english
+    private var recognizer = SFSpeechRecognizer(locale: Locale(identifier: Language.english.rawValue))
+
+    /// Switches the listening language. No-op while listening, so a language
+    /// change can't yank the recognizer out from under a live utterance.
+    func setLanguage(_ language: Language) {
+        guard !isListening, language != self.language else { return }
+        self.language = language
+        recognizer = SFSpeechRecognizer(locale: Locale(identifier: language.rawValue))
+    }
+
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let engine = AVAudioEngine()

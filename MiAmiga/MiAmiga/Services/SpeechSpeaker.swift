@@ -27,7 +27,16 @@ final class SpeechSpeaker: NSObject {
         synthesizer.delegate = self
     }
 
+    /// Half speed, for picking apart how a word is actually built.
+    func speakSlowly(_ text: String) {
+        speak(text, rate: AVSpeechUtteranceDefaultSpeechRate * 0.45)
+    }
+
     func speak(_ text: String) {
+        speak(text, rate: AVSpeechUtteranceDefaultSpeechRate * 0.92)
+    }
+
+    private func speak(_ text: String, rate: Float) {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
 
@@ -42,7 +51,7 @@ final class SpeechSpeaker: NSObject {
         utterance.voice = Self.preferredSpanishVoice()
         // Slightly under default: translated phrases are usually said to
         // someone who is listening carefully, not skimming.
-        utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 0.92
+        utterance.rate = rate
         utterance.pitchMultiplier = 1.0
         utterance.postUtteranceDelay = 0.1
 

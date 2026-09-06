@@ -8,9 +8,13 @@ struct PhraseCard: View {
     let spanish: String
     let isSpeaking: Bool
     let isTranslating: Bool
+    let isSaved: Bool
     let onSpeak: () -> Void
+    let onSpeakSlowly: () -> Void
     let onStop: () -> Void
     let onRetry: () -> Void
+    let onToggleSave: () -> Void
+    let onPractice: () -> Void
 
     private var translationFailed: Bool {
         !english.isEmpty && spanish.isEmpty && !isTranslating
@@ -63,18 +67,40 @@ struct PhraseCard: View {
             }
 
             if !spanish.isEmpty {
-                Button(action: isSpeaking ? onStop : onSpeak) {
-                    Label(
-                        isSpeaking ? "Stop" : "Hear it in Spanish",
-                        systemImage: isSpeaking ? "stop.fill" : "speaker.wave.2.fill"
-                    )
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 6)
+                VStack(spacing: 10) {
+                    Button(action: isSpeaking ? onStop : onSpeak) {
+                        Label(
+                            isSpeaking ? "Stop" : "Hear it in Spanish",
+                            systemImage: isSpeaking ? "stop.fill" : "speaker.wave.2.fill"
+                        )
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 6)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .contentTransition(.symbolEffect(.replace))
+
+                    HStack(spacing: 10) {
+                        Button(action: onSpeakSlowly) {
+                            Label("Slowly", systemImage: "tortoise.fill")
+                                .frame(maxWidth: .infinity)
+                        }
+
+                        Button(action: onPractice) {
+                            Label("Practise", systemImage: "mic.fill")
+                                .frame(maxWidth: .infinity)
+                        }
+
+                        Button(action: onToggleSave) {
+                            Image(systemName: isSaved ? "star.fill" : "star")
+                                .foregroundStyle(isSaved ? Color.yellow : Color.secondary)
+                        }
+                        .accessibilityLabel(isSaved ? "Remove from saved phrases" : "Save this phrase")
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.regular)
                 }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .contentTransition(.symbolEffect(.replace))
             }
         }
         .padding(22)

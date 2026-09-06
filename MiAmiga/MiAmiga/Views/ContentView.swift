@@ -1,9 +1,21 @@
+import SwiftData
 import SwiftUI
 import Translation
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var context
+    @Query private var saved: [SavedPhrase]
+
     @State private var model = TranslatorViewModel()
     @State private var showHistory = false
+    @State private var showLibrary = false
+    @State private var showPractice = false
+
+    /// The saved record matching what's on screen, if it's already starred.
+    private var savedMatch: SavedPhrase? {
+        guard let current = model.current, !current.spanish.isEmpty else { return nil }
+        return saved.first { $0.spanish == current.spanish }
+    }
 
     /// Driving `.translationTask` requires a configuration; recreating it is
     /// what triggers the framework to (re)prepare a session.
@@ -26,6 +38,14 @@ struct ContentView: View {
             .navigationTitle("Mi Amiga")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showLibrary = true
+                    } label: {
+                        Image(systemName: "books.vertical")
+                    }
+                    .accessibilityLabel("Phrase library")
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showHistory = true
@@ -39,9 +59,20 @@ struct ContentView: View {
             .sheet(isPresented: $showHistory) {
                 HistoryView(model: model)
             }
+            .sheet(isPresented: $showLibrary) {
+                LibraryView()
+            }
+            .sheet(isPresented: $showPractice) {
+                if let current = model.current, !current.spanish.isEmpty {
+                    PracticeView(
+                        english: current.english,
+                        spanish: current.spanish
+                    ) { passed in
+                        savedMatch?.recordAttempt(success: passed)
+                    }
+                }
+            }
         }
-        // Hands us a live TranslationSession, and presents the system's own
-        // language-download sheet the first time es-ES is needed.
         // Hands us a live TranslationSession and presents the system's own
         // language-download sheet the first time es-ES is needed.
         //
@@ -84,9 +115,13 @@ struct ContentView: View {
                             spanish: current.spanish,
                             isSpeaking: model.isSpeaking,
                             isTranslating: model.stage == .translating,
+                            isSaved: savedMatch != nil,
                             onSpeak: { model.speakCurrent() },
+                            onSpeakSlowly: { model.speakCurrentSlowly() },
                             onStop: { model.stopSpeaking() },
-                            onRetry: { Task { await model.retryTranslation() } }
+                            onRetry: { Task { await model.retryTranslation() } },
+                            onToggleSave: { toggleSave(current) },
+                            onPractice: { showPractice = true }
                         )
                         .transition(.asymmetric(
                             insertion: .scale(scale: 0.96).combined(with: .opacity),
@@ -189,6 +224,18 @@ struct ContentView: View {
         .padding(.top, 8)
         .frame(maxWidth: .infinity)
         .background(.bar)
+    }
+
+    /// Stars or unstars the phrase on screen.
+    private func toggleSave(_ phrase: Phrase) {
+        if let existing = savedMatch {
+            context.delete(existing)
+        } else {
+            context.insert(
+                SavedPhrase(english: phrase.english, spanish: phrase.spanish)
+            )
+        }
+        try? context.save()
     }
 
     private func unsupportedView(_ message: String) -> some View {

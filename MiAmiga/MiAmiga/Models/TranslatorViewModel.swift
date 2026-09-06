@@ -115,6 +115,11 @@ final class TranslatorViewModel {
         speaker.speak(spanish)
     }
 
+    func speakCurrentSlowly() {
+        guard let spanish = current?.spanish, !spanish.isEmpty else { return }
+        speaker.speakSlowly(spanish)
+    }
+
     func speak(_ phrase: Phrase) {
         speaker.speak(phrase.spanish)
     }
